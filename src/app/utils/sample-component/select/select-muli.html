@@ -1,0 +1,77 @@
+<ion-list>
+        <ion-list-header>Multiple Selection</ion-list-header>
+      
+        <ion-item>
+          <ion-label>Toppings</ion-label>
+          <ion-select multiple="true" cancelText="Nah" okText="Okay!">
+            <ion-select-option value="bacon">Bacon</ion-select-option>
+            <ion-select-option value="olives">Black Olives</ion-select-option>
+            <ion-select-option value="xcheese">Extra Cheese</ion-select-option>
+            <ion-select-option value="peppers">Green Peppers</ion-select-option>
+            <ion-select-option value="mushrooms">Mushrooms</ion-select-option>
+            <ion-select-option value="onions">Onions</ion-select-option>
+            <ion-select-option value="pepperoni">Pepperoni</ion-select-option>
+            <ion-select-option value="pineapple">Pineapple</ion-select-option>
+            <ion-select-option value="sausage">Sausage</ion-select-option>
+            <ion-select-option value="Spinach">Spinach</ion-select-option>
+          </ion-select>
+        </ion-item>
+      
+        <ion-item>
+          <ion-label>Pets</ion-label>
+          <ion-select multiple="true">
+            <ion-select-option value="bird" selected>Bird</ion-select-option>
+            <ion-select-option value="cat">Cat</ion-select-option>
+            <ion-select-option value="dog" selected>Dog</ion-select-option>
+            <ion-select-option value="honeybadger">Honey Badger</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
+
+
+      <ion-list>
+            <ion-list-header>Objects as Values (compareWith)</ion-list-header>
+          
+            <ion-item>
+              <ion-label>Users</ion-label>
+              <ion-select [compareWith]="compareWith">
+                <ion-select-option *ngFor="let user of users">{{user.first + ' ' + user.last}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+    </ion-list>
+
+    <!-- 
+        import { Component } from '@angular/core';
+
+@Component({
+  selector: 'select-example',
+  templateUrl: 'select-example.html',
+  styleUrls: ['./select-example.css'],
+})
+export class SelectExample {
+  users: any[] = [
+    {
+      id: 1,
+      first: 'Alice',
+      last: 'Smith',
+    },
+    {
+      id: 2,
+      first: 'Bob',
+      last: 'Davis',
+    },
+    {
+      id: 3,
+      first: 'Charlie',
+      last: 'Rosenburg',
+    }
+  ];
+
+  compareWithFn = (o1, o2) => {
+    return o1 && o2 ? o1.id === o2.id : o1 === o2;
+  };
+
+  compareWith = compareWithFn;
+}
+     -->

@@ -1,5 +1,7 @@
 {
   "name": "tutorial-blank",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

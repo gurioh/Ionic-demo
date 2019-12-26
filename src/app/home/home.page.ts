@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Book } from 'src/book';
+import {Books} from 'src/book-list'
 
 @Component({
   selector: 'app-home',
@@ -6,7 +8,14 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+ 
+  books: Array<any>;
 
-  constructor() {}
+  constructor() {
+    this._iniitializeApp();
+  }
 
+  _iniitializeApp() {
+    this.books = Books;
+  }
 }

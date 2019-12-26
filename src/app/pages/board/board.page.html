@@ -1,0 +1,75 @@
+<ion-header>
+  <!-- <ion-toolbar>
+    <ion-buttons slot="primary">
+      <ion-button (click)="clickedSearch()">
+        <ion-icon slot="icon-only" name="search"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-searchbar placeholder="Search Favorites"></ion-searchbar>
+  </ion-toolbar> -->
+  <!-- <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar> -->
+</ion-header>
+
+<ion-content>
+  <ion-list-header>게시판</ion-list-header>
+  <ion-list>
+    <div *ngFor="let article of articles">
+      <ion-item>
+        <ion-label>
+          {{article.id}}
+        </ion-label>
+        <ion-label>
+          {{article.title}}
+        </ion-label>
+        <ion-label>
+          {{article.contents}}
+        </ion-label>
+        <ion-button>
+          Edit
+        </ion-button>
+        <ion-button>
+          remove
+        </ion-button>
+      </ion-item>
+    </div>
+  </ion-list>
+
+  <ion-label> 글쓰기</ion-label>
+  <form [formGroup]="myForm">
+    <div>
+      <!-- Textarea in an item with a floating label -->
+      <ion-item>
+        <ion-label position="floating">Description</ion-label>
+        <ion-textarea  formControlName="contents"></ion-textarea>
+      </ion-item>
+      <ion-button (click)="addArticle()">
+        Add
+      </ion-button>
+      <ion-button (click)="getArticle()">
+        Get
+      </ion-button>
+      <ion-button (click)="ionViewDidLoad()">
+        HTTP test button
+      </ion-button>
+    </div>
+  </form>
+
+  <ion-chip>
+    <ion-avatar>
+      <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+    </ion-avatar>
+    <ion-label>Avatar Chip</ion-label>
+    <ion-icon name="close-circle"></ion-icon>
+  </ion-chip>
+</ion-content>
+
+
+<ion-footer mode=ios translucent="true">
+  <ion-toolbar>
+    <ion-title>Footer</ion-title>
+  </ion-toolbar>
+</ion-footer>
