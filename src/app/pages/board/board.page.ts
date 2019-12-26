@@ -37,7 +37,25 @@ export class BoardPage implements OnInit {
   }
 
   ionViewDidLoad(){
-    this.JsonpServiceService.getRemoteData();
+
+    var data = [];
+    this.JsonpServiceService.getRemoteData(data).subscribe(
+      data => {
+
+
+          if (data != null) {
+            console.log(data)
+          }
+
+          // this.getSearchDataList(this.date);
+      },
+      err => {
+          //�̹� ������ ��� �������� �޼����� ���´�
+
+          console.log("Error")
+
+      }
+  );
   }
 
   getArticle() {

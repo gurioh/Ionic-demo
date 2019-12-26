@@ -14,6 +14,7 @@ import {Sqlite} from './sqlite'
 
 import { FormsModule, ReactiveFormsModule }         from '@angular/forms';
 import { JsonpServiceService} from './services/jsonp-service.service'
+import { Jsonp, JsonpModule} from '@angular/http';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -21,7 +22,7 @@ import { JsonpServiceService} from './services/jsonp-service.service'
     IonicStorageModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
-    
+    JsonpModule,
     HttpClientModule
   ],
   
