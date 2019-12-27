@@ -28,7 +28,8 @@ export class BoardPage implements OnInit {
     this. articles = this.sqlite.getAll();
 
     this.myForm = this.formBuilder.group({
-      id: [''],
+      id:[''],
+      title: [''],
       contents: ['']
     });
   }
@@ -36,66 +37,83 @@ export class BoardPage implements OnInit {
   ngOnInit() {
   }
 
-  ionViewDidLoad(){
-
-    var data = [];
-    this.JsonpServiceService.getRemoteData(data).subscribe(
+  getArticleAll(){
+    this.JsonpServiceService.selectArticleAll().subscribe(
       data => {
-
-
           if (data != null) {
             console.log(data)
           }
-
           // this.getSearchDataList(this.date);
       },
       err => {
-          //�̹� ������ ��� �������� �޼����� ���´�
-
           console.log("Error")
 
       }
-  );
+    );
   }
 
   getArticle() {
     var id = this.myForm.value["id"].toString().trim();
-    this.sqlite.get(id);
+
+    this.JsonpServiceService.selectArticle(id).subscribe(
+      data => {
+          if (data != null) {
+            console.log(data)
+          }
+          // this.getSearchDataList(this.date);
+      },
+      err => {
+          console.log("Error")
+
+      }
+    );
   }
   addArticle() {
-    var id = this.articles.length.toString;
-    var contents = this.myForm.value["contents"].toString().trim();
-    this.sqlite.set(id,contents);
-    // var actionSheet = this.actionSheetCtrl.create({
-    //     title: param.TITLE,
-    //     buttons: [
-    //         {
-    //             text: '공연 예약하기',
-    //             handler: () => {
-    //                 this.showlist(param);
-    //             }
-    //         },
-    //         {
-    //             text: '공연정보 보기',
-    //             handler: () => {
+    
+    var data = {
+      title: this.myForm.value["title"].toString().trim(),
+      contents: this.myForm.value["contents"].toString().trim()
+    };
 
 
-                    
-    //                 this.parameter = param;
+    console.log(data)
 
-    //                 console.log(this.parameter);
-    //                 this.showInfo(param);
-    //                 // this.takePicture(this.camera.PictureSourceType.CAMERA);
-    //             }
-    //         },
-    //         {
-    //             text: '닫기',
-    //             role: 'cancel'
-    //         }
-    //     ]
-    // });
-    // actionSheet.present();
+
+    this.JsonpServiceService.insertArticle(data).subscribe(
+      data => {
+          if (data != null) {
+            console.log(data)
+          }
+          // this.getSearchDataList(this.date);
+      },
+      err => {
+          console.log("Error")
+
+      }
+    );
 
   }
- 
+
+  deleteArticle(){
+    var id = this.myForm.value["id"].toString().trim();
+
+    console.log(id)
+    this.JsonpServiceService.deleteArticle(id).subscribe(
+      data => {
+          if (data != null) {
+            console.log(data)
+          }
+          // this.getSearchDataList(this.date);
+      },
+      err => {
+          console.log("Error")
+
+      }
+    );
+  }
+
+  modifyArticle(){
+
+  }
+
 }

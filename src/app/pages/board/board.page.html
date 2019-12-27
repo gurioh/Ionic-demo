@@ -1,17 +1,4 @@
 <ion-header>
-  <!-- <ion-toolbar>
-    <ion-buttons slot="primary">
-      <ion-button (click)="clickedSearch()">
-        <ion-icon slot="icon-only" name="search"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-    <ion-searchbar placeholder="Search Favorites"></ion-searchbar>
-  </ion-toolbar> -->
-  <!-- <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="home"></ion-back-button>
-    </ion-buttons>
-  </ion-toolbar> -->
 </ion-header>
 
 <ion-content>
@@ -43,7 +30,15 @@
     <div>
       <!-- Textarea in an item with a floating label -->
       <ion-item>
-        <ion-label position="floating">Description</ion-label>
+          <ion-label position="floating">title</ion-label>
+          <ion-input type="text" formControlName="id"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label position="floating">title</ion-label>
+          <ion-input type="text" formControlName="title"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">contents</ion-label>
         <ion-textarea  formControlName="contents"></ion-textarea>
       </ion-item>
       <ion-button (click)="addArticle()">
@@ -52,8 +47,11 @@
       <ion-button (click)="getArticle()">
         Get
       </ion-button>
-      <ion-button (click)="ionViewDidLoad()">
-        HTTP test button
+      <ion-button (click)="deleteArticle()">
+        delete
+      </ion-button>
+      <ion-button (click)="modifyArticle()">
+        Edit
       </ion-button>
     </div>
   </form>

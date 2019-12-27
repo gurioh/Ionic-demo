@@ -9,6 +9,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClient , HttpClientModule} from '@angular/common/http';
+import { Headers, RequestOptions, HttpModule } from '@angular/http';
 import { IonicStorageModule } from '@ionic/storage';
 import {Sqlite} from './sqlite'
 
@@ -23,7 +24,8 @@ import { Jsonp, JsonpModule} from '@angular/http';
     FormsModule,
     ReactiveFormsModule,
     JsonpModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpModule
   ],
   
   providers: [
