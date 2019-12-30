@@ -43,12 +43,10 @@ export class JsonpServiceService {
     return response;
   }
 
-  modifyArticle(property){
+  modifyArticle(id: any, property){
  
-    var response = this.http.get('http://localhost:3001/users').map(data => {
-          data
-      })
-      return response;
+    var response = this.http.post('http://localhost:3001/users'+'/'+id, JSON.stringify(property), this.httpOptions);
+    return response;
   }
 
   deleteArticle(id: any){

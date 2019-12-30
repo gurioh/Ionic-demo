@@ -113,7 +113,28 @@ export class BoardPage implements OnInit {
   }
 
   modifyArticle(){
+    var data = {
+      id: this.myForm.value["id"].toString().trim(),
+      title: this.myForm.value["title"].toString().trim(),
+      contents: this.myForm.value["contents"].toString().trim()
+    };
 
+
+    console.log(data)
+
+
+    this.JsonpServiceService.modifyArticle(data.id, data).subscribe(
+      data => {
+          if (data != null) {
+            console.log(data)
+          }
+          // this.getSearchDataList(this.date);
+      },
+      err => {
+          console.log("Error")
+
+      }
+    );
   }
 
 }
