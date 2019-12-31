@@ -8,7 +8,7 @@ import { Article } from 'src/article';
 import {JsonpServiceService} from '../../services/jsonp-service.service'
 @Component({
   selector: 'app-board',
-  templateUrl: './board.page.html',
+  templateUrl: './board_test.page.html',
   styleUrls: ['./board.page.scss'],
   providers: []
 })
@@ -16,6 +16,9 @@ export class BoardPage implements OnInit {
   myForm: FormGroup;
   articles:  Article[];
   public article: any;
+
+  schedule: Array<{id: any, title: string, contents: Array<String>}>;
+  // items: Array<{day: string, note: string, icon: string}>;
 
   constructor(
     private JsonpServiceService : JsonpServiceService,
@@ -25,16 +28,59 @@ export class BoardPage implements OnInit {
   }
 
   _iniitializeApp() {
-    this. articles = this.sqlite.getAll();
+    //his. articles = this.sqlite.getAll();
 
     this.myForm = this.formBuilder.group({
       id:[''],
       title: [''],
       contents: ['']
     });
+
+    this.schedule = [];
+    for (let i = 1; i < 4; i++) {
+      this.schedule.push({
+        id: i,
+        title: i+ ' days',
+        contents: []
+      });
+    }
   }
 
   ngOnInit() {
+  }
+
+  addContent(day){
+    var id = day.id;
+    var title = day.title;
+
+    for (let i = 0; i < this.schedule.length; i++) {
+      if (this.schedule[i].id == day.id) {
+        console.log("Added Contents")
+        this.schedule[i].contents.push("Add content");
+        break;
+      }
+    }
+
+  // this.selected = date;
+  //   this.schedule.
+    console.log(id)
+  }
+
+  deleteContent(day){
+    var id = day.id;
+    var title = day.title;
+
+    for (let i = 0; i < this.schedule.length; i++) {
+      if (this.schedule[i].id == day.id) {
+        console.log("Deleted Contents")
+        this.schedule[i].contents.pop();
+        break;
+      }
+    }
+
+  // this.selected = date;
+  //   this.schedule.
+    console.log(id)
   }
 
   getArticleAll(){

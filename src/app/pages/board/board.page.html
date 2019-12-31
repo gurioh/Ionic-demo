@@ -3,28 +3,6 @@
 
 <ion-content>
   <ion-list-header>게시판</ion-list-header>
-  <ion-list>
-    <div *ngFor="let article of articles">
-      <ion-item>
-        <ion-label>
-          {{article.id}}
-        </ion-label>
-        <ion-label>
-          {{article.title}}
-        </ion-label>
-        <ion-label>
-          {{article.contents}}
-        </ion-label>
-        <ion-button>
-          Edit
-        </ion-button>
-        <ion-button>
-          remove
-        </ion-button>
-      </ion-item>
-    </div>
-  </ion-list>
-
   <ion-label> 글쓰기</ion-label>
   <form [formGroup]="myForm">
     <div>
@@ -56,13 +34,47 @@
     </div>
   </form>
 
-  <ion-chip>
-    <ion-avatar>
-      <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-    </ion-avatar>
-    <ion-label>Avatar Chip</ion-label>
-    <ion-icon name="close-circle"></ion-icon>
-  </ion-chip>
+  <ion-card>
+    <ion-card-header>
+      Welcome!
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list no-line>
+        <ion-item>
+          <ion-label position="stacked">ID</ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Password</ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+        <a>Forgot your login detail? <b>Get help signing in</b></a>
+        <button ion-button block outline color="light" (click)="login()">Log in</button>
+        <p>OR</p>
+        <button ion-button block color="facebook" (click)="register()">
+          <ion-icon name="ion-ios-personadd"></ion-icon> New Account
+        </button>
+        <button ion-button block outline color="light" (click)="loginAuto()">Auto</button>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-row>
+    <ion-col>
+      ion-col
+    </ion-col>
+    <ion-col>
+      ion-col
+    </ion-col>
+    <ion-col>
+      ion-col
+    </ion-col>
+    <ion-col>
+      ion-col
+    </ion-col>
+  </ion-row>
+
 </ion-content>
 
 

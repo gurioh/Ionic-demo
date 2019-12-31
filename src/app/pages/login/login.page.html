@@ -1,9 +1,40 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
+  <!-- <button ion-button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button> -->
+  <ion-title style="text-align: center">
+    Login
+  </ion-title>
 
-<ion-content>
+</ion-header>
+<ion-content class="background" padding no-bounce>
+
+  <!-- <p *ngIf="submitAttempt" style="color: #ea6153;">Please fill out all details accurately.</p> -->
+  <form>
+    <ion-card>
+      <ion-card-header>
+        Welcome!
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list no-line>
+          <ion-item>
+            <ion-label position="stacked">ID</ion-label>
+            <ion-input></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">Password</ion-label>
+            <ion-input></ion-input>
+          </ion-item>
+          <a>Forgot your login detail? <b>Get help signing in</b></a>
+          <button ion-button block outline color="light" (click)="login()">Log in</button>
+          <p>OR</p>
+          <button ion-button block color="facebook" (click)="register()">
+            <ion-icon name="ion-ios-personadd"></ion-icon> New Account
+          </button>
+          <button ion-button block outline color="light" (click)="loginAuto()">Auto</button>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </form>
 
 </ion-content>
