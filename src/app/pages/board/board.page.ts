@@ -80,14 +80,14 @@ export class BoardPage implements OnInit {
     console.log(id)
   }
 
-  deleteContent(day){
+  deleteContent(day:any, index:any){
     var id = day.id;
     var title = day.title;
-
+    console.log(index)
     for (let i = 0; i < this.schedule.length; i++) {
       if (this.schedule[i].id == day.id) {
         console.log("Deleted Contents")
-        this.schedule[i].contents.pop();
+        this.schedule[i].contents.splice(index,1);
         break;
       }
     }

@@ -17,12 +17,11 @@
               <ion-input type="text" formControlName="contents"></ion-input>
             </ion-item>
             <ion-button fill="outline" (click)="addContent(day)">+</ion-button>
-            <ion-button fill="outline" (click)="deleteContent(day)">-</ion-button>
           </ion-item>
           <ion-list>
-            <ion-item *ngFor="let content of day.contents" class="activated">
+            <ion-item *ngFor="let content of day.contents; index as i" class="activated">
               <ion-label> {{content}}</ion-label>
-              <ion-button fill="outline" slot="end">View</ion-button>
+              <ion-button fill="outline" slot="end" (click)="deleteContent(day, i)">Delete</ion-button>
             </ion-item>
           </ion-list>
         </ion-card>
