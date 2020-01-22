@@ -49,14 +49,28 @@ export class BoardPage implements OnInit {
   ngOnInit() {
   }
 
+  increseDay(){
+    let i = this.schedule.length;
+    this.schedule.push({
+      id: i+1,
+      title: i+1+ ' days',
+      contents: []
+    });
+  }
+
+  decreseDay(){
+    let i = this.schedule.length;
+    this.schedule.pop();
+  }
+
   addContent(day){
     var id = day.id;
     var title = day.title;
-
+    var contents = this.myForm.value["contents"].toString().trim();
     for (let i = 0; i < this.schedule.length; i++) {
       if (this.schedule[i].id == day.id) {
-        console.log("Added Contents")
-        this.schedule[i].contents.push("Add content");
+        console.log("Added Contents in " + day.id)
+        this.schedule[i].contents.push(contents);
         break;
       }
     }
