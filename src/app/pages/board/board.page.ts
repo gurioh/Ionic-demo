@@ -74,10 +74,6 @@ export class BoardPage implements OnInit {
         break;
       }
     }
-
-  // this.selected = date;
-  //   this.schedule.
-    console.log(id)
   }
 
   deleteContent(day:any, index:any){
@@ -91,10 +87,6 @@ export class BoardPage implements OnInit {
         break;
       }
     }
-
-  // this.selected = date;
-  //   this.schedule.
-    console.log(id)
   }
 
   getArticleAll(){
