@@ -18,7 +18,6 @@ export class BoardPage implements OnInit {
   public article: any;
 
   schedule: Array<{id: any, title: string, contents: Array<String>}>;
-  // items: Array<{day: string, note: string, icon: string}>;
 
   constructor(
     private JsonpServiceService : JsonpServiceService,
@@ -28,8 +27,6 @@ export class BoardPage implements OnInit {
   }
 
   _iniitializeApp() {
-    //his. articles = this.sqlite.getAll();
-
     this.myForm = this.formBuilder.group({
       id:[''],
       title: [''],
@@ -37,13 +34,6 @@ export class BoardPage implements OnInit {
     });
 
     this.schedule = [];
-    for (let i = 1; i < 4; i++) {
-      this.schedule.push({
-        id: i,
-        title: i+ ' days',
-        contents: []
-      });
-    }
   }
 
   ngOnInit() {

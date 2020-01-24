@@ -14,7 +14,7 @@
             <ion-icon name="pin" slot="start"></ion-icon>
             <ion-item>
               <ion-label position="floating" no-line>{{day.title}}</ion-label>
-              <ion-input type="text" formControlName="contents"></ion-input>
+              <ion-input type="text" formControlName="contents" (keyup.enter)="addContent(day)"></ion-input>
             </ion-item>
             <ion-button fill="outline" (click)="addContent(day)">+</ion-button>
           </ion-item>
